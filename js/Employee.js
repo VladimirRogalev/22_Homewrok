@@ -53,7 +53,7 @@ class Employee extends Person {
 
     constructor(id, firstName, lastName, birthDate, salary) {
         super(id, firstName, lastName, birthDate);
-        this._salary = salary;
+        this._salary = +salary; /// забыл добавить +
     }
 
     get salary() {
@@ -67,7 +67,10 @@ class Employee extends Person {
     }
 
     toString() {
-        return super.toString() + `,salary: ${this.salary}`;
+        return super.toString() + `,salary: ${this._salary}`;
+    }
+    createEmployeeDOMElement (tag) {
+        return createInfoElement(this.toString(), tag);
     }
 }
 
